@@ -37,6 +37,13 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: '#000',
-        marginTop: Platform.select({ ios: 15, android: 0 })
+        ...Platform.select({
+            ios:{
+                marginTop:15
+            },
+            android:{
+                marginTop:0
+            }
+        })
     }
 });
