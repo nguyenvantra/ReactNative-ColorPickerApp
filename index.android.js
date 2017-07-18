@@ -11,4 +11,4 @@ import {
 
 import App from './App';
 
-AppRegistry.registerComponent('PickColorApp', () => PickColorApp);
+AppRegistry.registerComponent('PickColorApp', () => App);

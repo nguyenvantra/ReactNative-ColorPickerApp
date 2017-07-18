@@ -1,1 +1,1 @@
-# ReactNative-PickerColorApp
+# Color Picker App

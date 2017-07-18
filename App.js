@@ -9,6 +9,10 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+            <View style={{height:65, backgroundColor:'#ECEFF1'
+            , alignItems: 'center', justifyContent:'center'}}>
+                <Text>Color Picker</Text>
+            </View>
       </View>
     );
   }
@@ -17,8 +21,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#FAFAFA',
   }
 });
