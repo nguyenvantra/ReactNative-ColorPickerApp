@@ -9,6 +9,6 @@ The Color Picker app uses **React Native**.
 
 ## UI ios,android
 <p align="center">
-  <img src="image/ui-ios.png" width="80" height="280"/>
+  <img src="image/ui-ios.png" width="150" height="380"/>
   <img src="image/ui-android.png" width="80" height="280"/>
 </p>
