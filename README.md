@@ -8,7 +8,7 @@ The Color Picker app uses **React Native**.
 - TextInput
 
 ## UI ios
-![ui ios](image/ui-ios)
+![ui ios](image/ui-ios.png)
 
 ## UI android
-![ui android](image/ui-android)
+![ui android](image/ui-android.png)
