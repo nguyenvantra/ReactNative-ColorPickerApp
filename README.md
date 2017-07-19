@@ -7,8 +7,8 @@ The Color Picker app uses **React Native**.
 - Slider
 - TextInput
 
-## UI ios,android
-<p align="center">
-  <img src="image/ui-ios.png" width="300"/>
-  <img src="image/ui-android.png" width="300"/>
-</p>
+## UI ios
+<img src="image/ui-ios.png" width="300"/>
+  
+## UI android
+<img src="image/ui-android.png" width="300"/>
