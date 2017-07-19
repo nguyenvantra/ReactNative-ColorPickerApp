@@ -8,42 +8,75 @@ import {
     TextInput
 } from 'react-native';
 
+class ColorControl extends Component {
+    constructor(props) {
+        super(props);
+        this.state = props;
+    }
+
+    render() {
+        return (
+            <View style={styles.component}>
+                <Text>{this.props.title}</Text>
+                <Slider onValueChange={(val) => {
+                    this.props.onValueChanged(val);
+                }} value={this.props.value} minimumValue={0} step={1} maximumValue={255} style={styles.slider} />
+                <View>
+                    <TextInput value={`${this.props.value}`} underlineColorAndroid="transparent" style={styles.textInput} />
+                </View>
+            </View>
+        );
+    }
+}
+
 export default class App extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            red: 100,
+            green: 150,
+            blue: 200
+        }
+    }
+
+    onSliderValueChanged = (color) => {
+        this.setState(color);
+    };
+
+    renderHeader = () => {
+        return (
+            <View style={styles.header}>
+                <Text style={styles.headerText}>Color Picker</Text>
+            </View>
+        );
+    }
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.header}>
-                    <Text style={styles.headerText}>Color Picker</Text>
-                </View>
+
+                {this.renderHeader()}
 
                 <View style={styles.body}>
                     <View style={styles.wrapper}>
                         <View style={styles.wrapperTop}>
-                            <View style={styles.component}>
-                                <Text>R</Text>
-                                <Slider style={styles.slider} />
-                                <View>
-                                    <TextInput underlineColorAndroid="transparent" style={styles.textInput} />
-                                </View>
-                            </View>
-
-                            <View style={styles.component}>
-                                <Text>G</Text>
-                                <Slider style={styles.slider} />
-                                <View>
-                                    <TextInput underlineColorAndroid="transparent" style={styles.textInput} />
-                                </View>
-                            </View>
-
-                            <View style={styles.component}>
-                                <Text>B</Text>
-                                <Slider style={styles.slider} />
-                                <View>
-                                    <TextInput underlineColorAndroid="transparent" style={styles.textInput} />
-                                </View>
-                            </View>
+                            <ColorControl title='R' value={this.state.red} onValueChanged={(val) => {
+                                const currentColor = this.state;
+                                const newColor = {...currentColor, red:val};
+                                this.onSliderValueChanged(newColor);
+                            }} />
+                            <ColorControl title='G' value={this.state.green} onValueChanged={(val) => {
+                                const currentColor = this.state;
+                                const newColor = {...currentColor, green:val};
+                                this.onSliderValueChanged(newColor);
+                            }}/>
+                            <ColorControl title='B' value={this.state.blue} onValueChanged={(val) => {
+                                const currentColor = this.state;
+                                const newColor = {...currentColor, blue:val};
+                                this.onSliderValueChanged(newColor);
+                            }}/>
                         </View>
-                        <View style={styles.wrapperBottom}></View>
+                        <View style={{ flex: 1, backgroundColor: `rgb(${this.state.red}, ${this.state.green}, ${this.state.blue})` }}></View>
                     </View>
                 </View>
             </View>
@@ -90,10 +123,6 @@ const styles = StyleSheet.create({
     },
     wrapperTop: {
         flex: 1
-    },
-    wrapperBottom: {
-        flex: 1,
-        backgroundColor: 'red'
     },
     component: {
         flex: 1,
